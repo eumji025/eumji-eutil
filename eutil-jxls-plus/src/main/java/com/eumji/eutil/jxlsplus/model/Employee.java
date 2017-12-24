@@ -26,6 +26,17 @@ public class Employee extends BaseError {
     @ValidateAnnotation(type = ImportTypeEnum.DATE,pattern = "yyyy-MM-dd",message = "birthDate时间错误")
     private String birthDate;
 
+    public Employee() {
+    }
+
+    public Employee(String name, String age, String payment, String bonus,String birthDate) {
+        this.name = name;
+        this.age = age;
+        this.payment = payment;
+        this.bonus = bonus;
+        this.birthDate = birthDate;
+    }
+
     public String getName() {
         return name;
     }
