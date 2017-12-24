@@ -21,12 +21,12 @@ public class JxlsUtils {
 
     /**
      * 通过classpath获取文件输入流
-      * @param xmlPath
+      * @param filePath 文件路径
      * @return
      * @throws IOException
      */
-    public static InputStream getXMlConfig(String xmlPath) throws IOException {
-        return getURL( xmlPath).openStream();
+    public static InputStream getXMlConfig(String filePath) throws IOException {
+        return getURL(filePath).openStream();
     }
 
     /**
