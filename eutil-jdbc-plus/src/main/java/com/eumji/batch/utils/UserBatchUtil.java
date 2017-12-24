@@ -20,13 +20,16 @@ import java.util.List;
 public class UserBatchUtil extends BaseBatchUtil<User> {
     /**
      * 自定义插入的字段
-     * 如果不需要插入所有的地段,重写 buildSql方法
+     * //如果不需要插入所有的地段,重写 buildSql方法
+     *
+     *
      * @param list
      * @return
      */
     @Override
     BatchPreparedStatementSetter initInsertBatchPreparedStatementSetter(List<User> list) {
         return new BatchPreparedStatementSetter(){
+            //如何绑定变量
             @Override
             public void setValues(PreparedStatement ps, int i) throws SQLException {
                 User user = list.get(i);
@@ -34,6 +37,7 @@ public class UserBatchUtil extends BaseBatchUtil<User> {
                 ps.setInt(2,user.getAge());
                 //ps.setDate();
             }
+            //插入的条数
             @Override
             public int getBatchSize() {
                 return list.size();

@@ -7,6 +7,11 @@ import java.lang.reflect.Field;
 import java.util.List;
 
 /**
+ *
+ * 批量插入的jdbcTemplate封装类
+ *
+ * 1.不配置事务 和spring集成能添加事务
+ *
  * @email eumji025@gmail.com
  * @author:EumJi
  * @date: 2017/11/29
@@ -16,7 +21,11 @@ public abstract class BaseBatchUtil<T> {
 
     protected JdbcTemplate jdbcTemplate;
 
-
+    /**
+     * 配置jdbctemplate模板
+     * 用于非spring web环境下 datasource构建
+     * @param jdbcTemplate
+     */
     public void setJdbcTemplate(JdbcTemplate jdbcTemplate){
         this.jdbcTemplate = jdbcTemplate;
     }
@@ -49,7 +58,13 @@ public abstract class BaseBatchUtil<T> {
         return sb.toString();
     }
 
-
+    /**
+     * sql+list实现批量插入
+     *
+     * @param list
+     * @param sql
+     * @return
+     */
     public int batchInsert(List<T> list,String sql){
         if (jdbcTemplate == null){
             jdbcTemplate = new JdbcTemplate();
@@ -62,6 +77,13 @@ public abstract class BaseBatchUtil<T> {
 //        int[] results = jdbcTemplate.batchUpdate(sql, initBatchPreparedStatementSetter(list));
 //    }
 
+    /**
+     * 表名+数据list 批量插入
+     * 默认拼装T的所有字段
+     * @param tableName
+     * @param list
+     * @return
+     */
     public int batchInsert(String tableName,List<T> list) {
         T t = list.get(0);
         Field[] fields = t.getClass().getDeclaredFields();
