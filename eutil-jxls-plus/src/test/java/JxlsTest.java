@@ -1,12 +1,14 @@
 import com.eumji.eutil.jxlsplus.model.Employee;
 import com.eumji.eutil.jxlsplus.utils.JxlsExcelReaderUtil;
+import com.eumji.eutil.jxlsplus.utils.JxlsExcelWriteUtil;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.List;
+import java.io.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * @email eumji025@gmail.com
@@ -42,5 +44,24 @@ public class JxlsTest {
 //        for (ConstraintViolation<Employee> constraintViolation : set) {
 //            System.out.println(constraintViolation.getPropertyPath()+":"+constraintViolation.getMessage());
 //        }
+    }
+
+    @Test
+    public void outputTest() throws FileNotFoundException {
+        Map<String, Object> map = new HashMap<>();
+        map.put("ems",generateSampleEmployeeData());
+        OutputStream outputStream = new FileOutputStream("/home/eumji/demo.xlsx");
+        JxlsExcelWriteUtil.writeDataToOutputStream("template/employeeTemplate.xlsx",map,outputStream);
+    }
+
+    public  List<Employee> generateSampleEmployeeData() {
+        List<Employee> employees = new ArrayList<Employee>();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MMM-dd", Locale.US);
+        employees.add( new Employee("Elsa", "1970-Jul-10", "33","1500", "0.15") );
+        employees.add( new Employee("Oleg", "1973-Apr-30","123", "2300", "0.25") );
+        employees.add( new Employee("Neil", "1975-Oct-05", "12","2500", "0.00") );
+        employees.add( new Employee("Maria", "1978-Jan-07","12", "1700", "0.15") );
+        employees.add( new Employee("John", "1969-May-30","12", "2800", "0.20") );
+        return employees;
     }
 }
