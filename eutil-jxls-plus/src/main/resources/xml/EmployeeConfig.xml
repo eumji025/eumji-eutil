@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<workbook>
+    <worksheet idx="0">
+        <section startRow="0" endRow="0"/>
+        <loop startRow="1" endRow="1" items="items" var="employee" varType="com.eumji.eutil.jxlsplus.model.Employee">
+            <section startRow="1" endRow="1">
+                <mapping row="1" col="0">employee.name</mapping>
+                <mapping row="1" col="1">employee.age</mapping>
+                <mapping row="1" col="2">employee.birthDate</mapping>
+                <mapping row="1" col="3">employee.payment</mapping>
+                <mapping row="1" col="4">employee.bonus</mapping>
+            </section>
+            <loopbreakcondition>
+                <rowcheck offset="0">
+                    <!--<cellcheck offset="0">item Payment Totals:</cellcheck>-->
+                </rowcheck>
+            </loopbreakcondition>
+        </loop>
+    </worksheet>
+</workbook>
