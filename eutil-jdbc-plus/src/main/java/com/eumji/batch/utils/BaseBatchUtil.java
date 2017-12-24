@@ -13,7 +13,7 @@ import java.util.List;
  * 1.不配置事务 和spring集成能添加事务
  *
  * @email eumji025@gmail.com
- * @author:EumJi
+ * @author: EumJi
  * @date: 2017/11/29
  * @time: 22:18
  */
@@ -88,7 +88,6 @@ public abstract class BaseBatchUtil<T> {
         T t = list.get(0);
         Field[] fields = t.getClass().getDeclaredFields();
         String sql = buildSql(fields, tableName);
-        //System.out.println(sql);
         return batchInsert(list,sql);
     }
 
