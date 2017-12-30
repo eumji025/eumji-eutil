@@ -1,5 +1,6 @@
 ## 介绍
-本工具类是基于jdk1.8和pagehelper实现的分页封装
+本工具类是基于jdk1.8和pagehelper实现的分页封装,本文不提供pagehelper的依赖,需要使用时候自行导入
+,多环境的问题.
 
 ## 使用介绍
 本介绍基于spring boot介绍
@@ -40,7 +41,7 @@ pagehelper:
 3.工具类使用
 ```java
 
- BaseServiceUtil<UserInfo,PageInfo> serviceUtil = BaseServiceUtil.getInstance();
-        Pagination<UserInfo> result = serviceUtil.search(pageInfo, userInfoMapper::getUserList);
-        return result;
+BaseServiceUtil<UserInfo,PageInfo> serviceUtil = BaseServiceUtil.getInstance();
+Pagination<UserInfo> result = serviceUtil.search(pageInfo, userInfoMapper::getUserList);
+return result;
 ```
