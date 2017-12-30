@@ -72,17 +72,18 @@ public class BaseServiceUtil<T, R extends Page> {
         }else {
             page = new Page(searchBean.getPageNum(),searchBean.getPageSize());
         }
-        executePagination(c, page, searchBean);
-        return new Pagination<T>(page);
+        return executePagination(c, page, searchBean);
     }
 
-    private void executePagination(Function<T, R> c, Page<T> page, R searchBean) {
+    private Pagination executePagination(Function<T, R> c, Page<T> page, R searchBean) {
         try {
             PageHelper.startPage(page.getPageNum(), page.getPageSize(), page.isCount());
-            page = (Page) c.search(searchBean);
+            return new Pagination((Page) c.search(searchBean));
+
         } catch (Exception e) {
             logger.error("分页查询数据失败,",e);
         }
+        return new Pagination(page);
     }
 
 
