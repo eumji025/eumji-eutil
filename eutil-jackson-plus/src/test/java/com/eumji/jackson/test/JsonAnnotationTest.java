@@ -1,5 +1,6 @@
 package com.eumji.jackson.test;
 
+import com.eumji.jackson.model.DateModel;
 import com.eumji.jackson.model.MapInfo;
 import com.eumji.jackson.model.UserInfo;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -145,6 +146,18 @@ public class JsonAnnotationTest {
         ObjectMapper objectMapper = new ObjectMapper();
         MapInfo mapInfo = objectMapper.readValue(json, MapInfo.class);
         System.out.println(mapInfo.toString());
+    }
+
+    @Test
+    public void dateToJson() throws IOException {
+        //language=JSON
+        String json = "{\"day\":\"2017-09-11\",\"time\":\"2018-01-01 12:11:11\"}";
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.findAndRegisterModules();
+        DateModel dateModel = objectMapper.readValue(json, DateModel.class);
+
+        String value = objectMapper.writeValueAsString(dateModel);
+        System.out.println(value);
     }
 
 
