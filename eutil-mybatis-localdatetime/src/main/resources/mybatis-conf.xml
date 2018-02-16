@@ -15,7 +15,12 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+    <settings>
+        <setting name="localCacheScope" value="STATEMENT"/>
+        <setting name="cacheEnabled" value="true"/>
+    </settings>
     <typeHandlers>
         <typeHandler handler="com.eumji.date.handler.LocalDateTimeHandler" />
     </typeHandlers>
+
 </configuration>
