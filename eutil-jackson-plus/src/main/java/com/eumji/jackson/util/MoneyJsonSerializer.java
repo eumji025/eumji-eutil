@@ -18,7 +18,7 @@ import java.text.DecimalFormat;
  * @date: 18-1-13
  * @time: 上午11:22
  */
-public class MoneyJsonSerialer extends JsonSerializer<Double> {
+public class MoneyJsonSerializer extends JsonSerializer<Double> {
     private static ThreadLocal<DecimalFormat> threadLocal = new ThreadLocal<>();
 
     public static DecimalFormat getDecimalFormat(){
