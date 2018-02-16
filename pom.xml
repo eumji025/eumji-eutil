@@ -12,6 +12,7 @@
         <module>eutil-jdbc-plus</module>
         <module>eutil-pagehelper-plus</module>
         <module>eutil-jackson-plus</module>
+        <module>eutil-mybatis-localdatetime</module>
     </modules>
     <packaging>pom</packaging>
 
