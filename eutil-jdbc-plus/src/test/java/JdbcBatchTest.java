@@ -37,6 +37,6 @@ public class JdbcBatchTest {
         user2.setName("zhangsan22");
         users.add(user2);
         userBatchUtil.batchInsert(users,"insert into user(name,age) value(?,?)");
-        TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+        //TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
     }
 }
