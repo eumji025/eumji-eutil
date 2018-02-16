@@ -1,5 +1,8 @@
 package com.eumji.date.model;
 
+import org.apache.ibatis.type.Alias;
+
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
@@ -8,7 +11,8 @@ import java.time.LocalDateTime;
  * @date: 18-2-5
  * @time: 下午5:23
  */
-public class UserInfo {
+@Alias("userinfo")
+public class UserInfo implements Serializable {
 
     private int id;
     private String name;
@@ -45,5 +49,15 @@ public class UserInfo {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "UserInfo{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", birthday=" + birthday +
+                ", age=" + age +
+                '}';
     }
 }

@@ -24,6 +24,7 @@ public class DateService {
 
     public UserInfo getUserById(int id){
         UserInfo userInfo = dateMapper.getUser(id);
+        UserInfo userInfo2 = dateMapper.getUser(id);
         return userInfo;
     }
 }

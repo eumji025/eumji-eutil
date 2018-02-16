@@ -3,12 +3,13 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.eumji.date.mapper.DateMapper">
+    <cache type="com.eumji.date.util.MybatisRedisCache"/>
     <insert id="saveInfo">
         insert into user_info(name,birthday,age) VALUES (#{name},#{birthday},#{age})
     </insert>
 
 
-    <select id="getUser" resultType="com.eumji.date.model.UserInfo">
+    <select id="getUser"  resultType="userinfo">
         select * from user_info where id = #{id}
     </select>
 </mapper>
