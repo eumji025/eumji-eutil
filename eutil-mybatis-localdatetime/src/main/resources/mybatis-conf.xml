@@ -22,5 +22,8 @@
     <typeHandlers>
         <typeHandler handler="com.eumji.date.handler.LocalDateTimeHandler" />
     </typeHandlers>
+    <plugins>
+        <plugin interceptor="com.eumji.date.plugin.OutInterceptor"></plugin>
+    </plugins>
 
 </configuration>
