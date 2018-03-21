@@ -29,8 +29,13 @@ public class JxlsUtils {
         return getURL(filePath).openStream();
     }
 
+//    private static void getResource(String path){
+//        ClassPathResource resource = new ClassPathResource(path);
+//    }
+
     /**
      * 通过url获取文件
+     * 这种方式好像在classpath不可取
      * @param path
      * @return
      * @throws FileNotFoundException
@@ -38,7 +43,8 @@ public class JxlsUtils {
     private static URL getURL(String path) throws FileNotFoundException {
 
         ClassLoader classLoader = JxlsUtils.class.getClassLoader();
-        URL url = ClassLoader.getSystemResource(path);
+        URL url = JxlsUtils.class.getClassLoader().getResource(path);
+        //URL url = ClassLoader.getSystemResource(path);
         if (url == null) {
             String description = "class path resource [" + path + "]";
             throw new FileNotFoundException(description +
