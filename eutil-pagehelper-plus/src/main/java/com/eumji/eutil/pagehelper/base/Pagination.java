@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
+ * 分页信息 响应类
  * @email eumji025@gmail.com
  * @author:EumJi
  * @date: 17-12-25
@@ -13,12 +14,22 @@ import java.util.List;
  */
 public class Pagination<T> implements Serializable {
     private static final long serialVersionUID = 1L;
-    // 传参或指定
-    private int page; // 当前页号, 采用自然数计数 1,2,3,...
-    private int pageSize; // 页面大小:一个页面显示多少个数据
+    /**
+     * 第几页
+     */
+    private int page;
+    /**
+     * 页面大小
+     */
+    private int pageSize;
 
-    // 需要从数据库中查找出
-    private long totalCount;// 数据总数：一共有多少个数据
+    /**
+     * 总数量 查询获得
+     */
+    private long totalCount;
+    /**
+     * 响应结果集
+     */
     private List<T> list;
 
     public Pagination() {

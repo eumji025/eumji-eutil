@@ -10,17 +10,14 @@ import com.github.pagehelper.Page;
  */
 public class PageInfo<E> extends Page<E> {
     /**
-     * sort way
+     * 排序方式
      */
     private String sort = "desc";
     /**
-     * sort param
+     * 排序字段
      */
     private String sortParam;
 
-    /**
-     * what id you need
-     */
     private String id;
 
     public String getSort() {
