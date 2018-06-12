@@ -4,6 +4,11 @@ import com.eumji.date.mapper.DateMapper;
 import com.eumji.date.model.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * @email eumji025@gmail.com
@@ -22,9 +27,24 @@ public class DateService {
         return count;
     }
 
+    //@Transactional
     public UserInfo getUserById(int id){
-        UserInfo userInfo = dateMapper.getUser(id);
-        UserInfo userInfo2 = dateMapper.getUser(id);
-        return userInfo;
+        List<UserInfo> allUser = dateMapper.getAllUser();
+        //UserInfo userInfo = dateMapper.getUserByName(id,"zhangsan");
+        //UserInfo userInfo1 = dateMapper.getUser(id);
+        //UserInfo userInfo2 = dateMapper.getUser(id);
+
+
+        return allUser.get(0);
+        //return userInfo;
     }
+
+    public List<UserInfo> getAllUser(){
+        List<UserInfo> users =  dateMapper.getAllUser();
+
+        System.out.println(users);
+
+        return users;
+    }
+
 }

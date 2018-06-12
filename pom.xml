@@ -13,6 +13,7 @@
         <module>eutil-pagehelper-plus</module>
         <module>eutil-jackson-plus</module>
         <module>eutil-mybatis-localdatetime</module>
+        <module>eumji-segment-plus</module>
     </modules>
     <packaging>pom</packaging>
 

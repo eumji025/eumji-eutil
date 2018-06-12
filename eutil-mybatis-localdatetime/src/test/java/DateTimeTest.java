@@ -59,4 +59,9 @@ public class DateTimeTest {
 //        UserInfo user2 = mapper.getUser(1);
 //        System.out.println(user);
     }
+
+    @Test
+    public void getAllUser(){
+        dateService.getAllUser();
+    }
 }

@@ -8,5 +8,5 @@ package com.eumji.eutil.jxlsplus.enums;
  * @time: 下午9:04
  */
 public enum  ImportTypeEnum {
-    INTEGER,DOUBLE,STRING,DATE,DATETIME;
+    NUMBER,STRING,DATE,TIME,DATETIME;
 }
