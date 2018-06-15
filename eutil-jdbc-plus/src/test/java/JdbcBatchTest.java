@@ -6,7 +6,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 import javax.sql.DataSource;
 import java.util.ArrayList;
