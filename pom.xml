@@ -14,6 +14,8 @@
         <module>eutil-jackson-plus</module>
         <module>eutil-mybatis-localdatetime</module>
         <module>eumji-segment-plus</module>
+        <module>eutil-xstrem-plus</module>
+        <module>eutil-jmh-plus</module>
     </modules>
     <packaging>pom</packaging>
 
