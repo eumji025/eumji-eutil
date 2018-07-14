@@ -1,14 +1,6 @@
 package com.eumji.jmh.demo;
 
 import org.openjdk.jmh.annotations.Benchmark;
-import org.openjdk.jmh.runner.Runner;
-import org.openjdk.jmh.runner.RunnerException;
-import org.openjdk.jmh.runner.options.Options;
-import org.openjdk.jmh.runner.options.OptionsBuilder;
-import sun.security.provider.Sun;
-
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 /**
  * @description: write some thing of this file

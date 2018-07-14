@@ -1,6 +1,5 @@
 package com.eumji.xstream.util;
 
-import com.sun.istack.internal.Nullable;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.converters.basic.DateConverter;
 import com.thoughtworks.xstream.converters.basic.DoubleConverter;
@@ -64,7 +63,13 @@ public class XstreamBuildFactory {
         return buildXstreamByKey("xstream-default-builder-key");
     }
 
-    public static XStream createXstreamAndExpand(String key, @Nullable XStreamExpander xstreamExpander){
+    /**
+     * 提供扩展的接口
+     * @param key 获取xstream的key
+     * @param xstreamExpander 扩展接口，可以为空
+     * @return
+     */
+    public static XStream createXstreamAndExpand(String key, XStreamExpander xstreamExpander){
         XStream stream = buildXstreamByKey(key);
         if (xstreamExpander != null){
             return xstreamExpander.expandMoreAttr(stream);

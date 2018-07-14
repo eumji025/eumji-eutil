@@ -27,7 +27,7 @@ import java.util.concurrent.TimeUnit;
  * @author: EumJi
  * @date: 2018-07-07
  */
-@State(Scope.Thread)
+@State(Scope.Benchmark)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 @Warmup(iterations = 3,time = 1,timeUnit = TimeUnit.SECONDS)
