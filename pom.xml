@@ -16,6 +16,7 @@
         <module>eumji-segment-plus</module>
         <module>eutil-xstrem-plus</module>
         <module>eutil-jmh-plus</module>
+        <module>common-util-touse</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -27,6 +28,7 @@
         <javax.el.version>3.0.0</javax.el.version>
         <hibernate.validator.version>6.0.7.Final</hibernate.validator.version>
         <junit.version>4.12</junit.version>
+        <feign.version>9.5.0</feign.version>
     </properties>
 
     <dependencyManagement>
@@ -78,6 +80,24 @@
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
                 <version>${junit.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.github.openfeign</groupId>
+                <artifactId>feign-core</artifactId>
+                <version>${feign.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.github.openfeign</groupId>
+                <artifactId>feign-hystrix</artifactId>
+                <version>${feign.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.github.openfeign</groupId>
+                <artifactId>feign-okhttp</artifactId>
+                <version>${feign.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
