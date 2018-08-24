@@ -1,14 +1,13 @@
 package com.eumji.common.feign;
 
 import com.eumji.common.feign.api.HelloApi;
-import com.eumji.common.feign.config.Base64Util;
 import com.eumji.common.feign.config.DefaultRetryerPlus;
+import com.eumji.common.feign.config.GsonDecoder;
+import com.eumji.common.feign.config.GsonEncoder;
 import feign.Feign;
-import feign.Retryer;
 import feign.auth.BasicAuthRequestInterceptor;
 
 import java.nio.charset.Charset;
-import java.util.Base64;
 
 /**
  * @email eumji025@gmail.com
@@ -39,10 +38,20 @@ public class FeiClientDemo {
 
     }
 
+    /**
+     * interceptor的演示
+     * server {@link com/eumji/common/feign/api/interceptor.go}
+     */
     public void interceptor(){
         HelloApi helloApi = Feign.builder().requestInterceptor(new BasicAuthRequestInterceptor("admin","pass", Charset.forName("UTF-8"))).target(HelloApi.class, "http://localhost:8081");
         String result = helloApi.hello("zhangsan");
         System.out.println("receive response:"+result);
+    }
+
+    public void encodeAndDecode(){
+        HelloApi helloApi = Feign.builder().encoder(new GsonEncoder())
+                .decoder(new GsonDecoder()).target(HelloApi.class, "http://localhost:8081");
+
     }
 
     public static void main(String[] args) {
