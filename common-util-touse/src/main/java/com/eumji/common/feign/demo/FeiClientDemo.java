@@ -1,4 +1,4 @@
-package com.eumji.common.feign;
+package com.eumji.common.feign.demo;
 
 import com.eumji.common.feign.api.HelloApi;
 import com.eumji.common.feign.config.DefaultRetryerPlus;
