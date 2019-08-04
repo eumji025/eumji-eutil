@@ -37,13 +37,13 @@ public class ValidateAnnotationHandler implements ConstraintValidator<ValidateAn
                 return false;
             }
             if (type == ImportTypeEnum.DATE) {
-                LocalDate.parse(value, DateTimeFormatter.ofPattern(value));
+                LocalDate.parse(value, DateTimeFormatter.ofPattern(pattern));
             }
             if (type == ImportTypeEnum.TIME) {
-                LocalTime.parse(value, DateTimeFormatter.ofPattern(value));
+                LocalTime.parse(value, DateTimeFormatter.ofPattern(pattern));
             }
             if (type == ImportTypeEnum.DATETIME) {
-                LocalDateTime.parse(value, DateTimeFormatter.ofPattern(value));
+                LocalDateTime.parse(value, DateTimeFormatter.ofPattern(pattern));
             }
 
             if (type == ImportTypeEnum.NUMBER) {

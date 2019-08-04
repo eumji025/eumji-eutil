@@ -64,18 +64,20 @@ public class JxlsExcelReaderUtil<T extends BaseError> {
      * @throws InvalidFormatException
      */
     public List<T> getInfoFromFile(String xmlPath,File file) throws IOException, SAXException, InvalidFormatException {
-        BufferedInputStream bufferedInputStream = new BufferedInputStream(new FileInputStream(file));
-
-        InputStream template = JxlsUtils.getXMlConfig(xmlPath);
-        XLSReader xlsReader = ReaderBuilder.buildFromXML(template);
-        List<T> list = new ArrayList();
-        HashMap<String, Object> map = new HashMap<String, Object>();
-        map.put("items",list);
-        XLSReadStatus read = xlsReader.read(bufferedInputStream, map);
-        if (!read.isStatusOK()){
-            logger.error("read excel state error");
+        try (
+            BufferedInputStream bufferedInputStream = new BufferedInputStream(new FileInputStream(file));
+        ){
+            InputStream template = JxlsUtils.getXMlConfig(xmlPath);
+            XLSReader xlsReader = ReaderBuilder.buildFromXML(template);
+            List<T> list = new ArrayList();
+            HashMap<String, Object> map = new HashMap<String, Object>();
+            map.put("items", list);
+            XLSReadStatus read = xlsReader.read(bufferedInputStream, map);
+            if (!read.isStatusOK()) {
+                logger.error("read excel state error");
+            }
+            return list;
         }
-        return list;
     }
 
     /**
@@ -86,7 +88,7 @@ public class JxlsExcelReaderUtil<T extends BaseError> {
     public boolean dataCheck(List<T> list){
         boolean hasError = false;
         for (T item : list) {
-            StringBuffer sb = new StringBuffer();
+            StringBuilder sb = new StringBuilder();
             //通过validator验证,如果存在错误信息,则有错
             Set<ConstraintViolation<T>> set = validator.validate(item);
             for (ConstraintViolation<T> constraintViolation : set) {
