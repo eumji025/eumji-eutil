@@ -1,13 +1,12 @@
-package com.eumji.common.feign.demo;
+package com.eumji.common.eventbus;
 
-import com.google.common.eventbus.AllowConcurrentEvents;
+
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
 
-import java.util.concurrent.ThreadLocalRandom;
-
 /**
  * event bus 简单使用案例 -> @Subscribe注解不能放在基类里面和泛型搭配会导致混乱
+ * https://blog.csdn.net/huangyu1985/article/details/78735877
  * @email eumji025@gmail.com
  * @author:EumJi
  * @date: 2018/9/6
@@ -91,7 +90,7 @@ public class EventBusDemo {
      * EvenrListenerB people event listener done current thread is: 13
      * event push and listener end
      *
-     * 单线程post事件，穿行
+     * 单线程post事件，串行
      *user event listener start current thread is: 1
      * user event listener done
      * EvenrListenerB people event listener start current thread is: 1
@@ -106,8 +105,8 @@ public class EventBusDemo {
         eventBus.register(evenrListenerB);
         eventBus.post(new User());
         eventBus.post(new People());
-//        new Thread(()-> eventBus.post(new People())).start();
-//        new Thread(()-> eventBus.post(new User())).start();
+//        new Thread(()-> eventbus.post(new People())).start();
+//        new Thread(()-> eventbus.post(new User())).start();
 
         Thread.sleep(3000L);
         System.out.println("event push and listener end");
@@ -138,7 +137,7 @@ public class EventBusDemo {
         EventBus eventBus = new EventBus();
         //EvenrListenerC evenrListenerA = new EvenrListenerC();
         EvenrListenerB evenrListenerB = new EvenrListenerB();
-        //eventBus.register(evenrListenerA);
+        //eventbus.register(evenrListenerA);
         eventBus.register(evenrListenerB);
 
         for (int i = 0; i < 3; i++) {

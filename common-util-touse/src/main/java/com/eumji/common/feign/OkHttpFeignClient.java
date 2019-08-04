@@ -8,6 +8,8 @@ import okhttp3.ConnectionPool;
 import java.util.concurrent.TimeUnit;
 
 /**
+ *
+ * 通过feign代理okhttpClient进行http调用
  * @email eumji025@gmail.com
  * @author:EumJi
  * @date: 2018/8/25
@@ -15,8 +17,8 @@ import java.util.concurrent.TimeUnit;
  */
 public class OkHttpFeignClient {
 
-    public static HelloApi okhttpProxy(){
-        HelloApi target = Feign.builder().client(initOkHttpClient()).target(HelloApi.class, "http://localhost:8081");
+    public static <T> T okhttpProxy(Class<T> apiType,String baseUrl){
+        T target = Feign.builder().client(initOkHttpClient()).target(apiType, baseUrl);
 
         return target;
     }

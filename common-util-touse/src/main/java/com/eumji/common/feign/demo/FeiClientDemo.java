@@ -1,5 +1,6 @@
 package com.eumji.common.feign.demo;
 
+import com.eumji.common.feign.OkHttpFeignClient;
 import com.eumji.common.feign.api.HelloApi;
 import com.eumji.common.feign.config.DefaultRetryerPlus;
 import com.eumji.common.feign.config.GsonDecoder;
@@ -22,7 +23,8 @@ public class FeiClientDemo {
      * feignclient最基本的用法
      */
     public void baseUse(){
-        HelloApi helloApi = Feign.builder().target(HelloApi.class, "http://localhost:8081");
+        HelloApi helloApi = OkHttpFeignClient.okhttpProxy(HelloApi.class, "http://localhost:8081");
+        //HelloApi helloApi = Feign.builder().target(HelloApi.class, "http://localhost:8081");
         String result = helloApi.hello("zhangsan");
         System.out.println("receive response:"+result);
     }
@@ -55,10 +57,11 @@ public class FeiClientDemo {
     }
 
     public static void main(String[] args) {
-        new FeiClientDemo().interceptor();
+       // new FeiClientDemo().interceptor();
         //BasicAuthRequestInterceptor basicAuthRequestInterceptor = new BasicAuthRequestInterceptor("admin", "pass", Charset.forName("UTF-8"));
         //basicAuthRequestInterceptor.apply(null);
         //String s = new String(Base64Util.decode("YWRtaW46cGFzcw==".getBytes(Charset.forName("utf-8"))));
         //System.out.println(s);
+        new FeiClientDemo().baseUse();
     }
 }
