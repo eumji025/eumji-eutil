@@ -57,7 +57,7 @@ public class RSAUtil {
         byte[] pri_key = keys.getPrivate().getEncoded();
         String privateKeyString = encodeBase64String(pri_key);
 
-        Map<String, String> keyPairMap = new HashMap<>();
+        Map<String, String> keyPairMap = new HashMap<String,String>();
         keyPairMap.put("publicKeyString", publicKeyString);
         keyPairMap.put("privateKeyString", privateKeyString);
 

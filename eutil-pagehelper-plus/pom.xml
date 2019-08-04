@@ -12,24 +12,13 @@
     <artifactId>eutil-pagehelper-plus</artifactId>
 
     <dependencies>
-        <!--<dependency>
-            <groupId>com.github.pagehelper</groupId>
-            <artifactId>pagehelper</artifactId>
-        </dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>org.slf4j</groupId>-->
-            <!--<artifactId>slf4j-api</artifactId>-->
-        <!--</dependency>-->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>1.7.25</version>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper</artifactId>
-            <version>5.1.1</version>
         </dependency>
     </dependencies>
 

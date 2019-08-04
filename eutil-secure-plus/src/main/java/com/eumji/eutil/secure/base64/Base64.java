@@ -52,6 +52,9 @@ import org.apache.commons.codec.binary.StringUtils;
  * @see <a href="http://www.ietf.org/rfc/rfc2045.txt">RFC 2045</a>
  * @since 1.0
  * @version $Id: Base64.java 1789158 2017-03-28 15:04:58Z sebb $
+ *
+ * @desc sometime we want provide one example maybe has some secure util to use
+ * but provide jar very stupied, so copy util source code maybe useful ....
  */
 public class Base64 extends BaseNCodec {
 
