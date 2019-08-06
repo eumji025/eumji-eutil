@@ -14,10 +14,10 @@
     </select>
 
     <select id="getUserByName" resultType="userinfo">
-        select * from user_info where id = ${id} and name = ${name}
+        select * from user_info where id = #{id} and name = #{name}
     </select>
 
-    <select id="getAllUser" resultType="com.eumji.date.model.UserResponse">
+    <select id="getAllUser" resultType="com.eumji.date.model.UserInfo">
         select * from user_info
     </select>
 </mapper>
